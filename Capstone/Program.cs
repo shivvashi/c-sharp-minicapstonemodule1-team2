@@ -6,32 +6,55 @@ namespace Capstone
     {
         static void Main(string[] args)
 
-        {
+        {  
             Menu menu = new Menu();
             menu.DisplayOptions();
-
-            string userInput = "";
-            int result = 0;
-            while (result == 0)
-            {
-                userInput = (Console.ReadLine());
-                bool success = int.TryParse(userInput, out result);
-                if (!success)
-                {
-                    Console.WriteLine($"Please try again to enter a number");
-                }
-
-            }
-           
-            if (userInput == "1")
+            int userChoice = menu.ParseUserChoice();
+            if (userChoice == 1)
             {
                 menu.DisplayItem();
+                Console.WriteLine();
+
+
             }
-            if (userInput == "2")
+         
+            menu.DisplayOptions();
+            userChoice =menu.ParseUserChoice();
+
+            if (userChoice == 2)
             {
+
                 menu.DisplayPurchaseOptions();
             }
+            else if(userChoice == 1)
+            {
+                menu.DisplayItem();
+
+            }
+            VendingMachine vendingMachine = new VendingMachine();
+
+            //vendingMachine.MoneyGiven = Console.ReadLine();
+
+            Console.WriteLine($"Insert dollar bills of $1,$5,$10,$20");
+
+            string moneyFed = Console.ReadLine();
+            double Money = double.Parse(moneyFed);
+            vendingMachine.FeedMoney(Money);
+            Money = vendingMachine.CurrentMoneyProvided;
+            //while()
+            Console.WriteLine($"Current money provided: ${Money}");
+            menu.DisplayPurchaseOptions();
+
             
+
+
+
+
+
+
+
+
+
         }
     }
 }
