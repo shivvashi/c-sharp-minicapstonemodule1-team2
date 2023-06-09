@@ -9,13 +9,17 @@ namespace Capstone
 
         public double CurrentMoneyProvided { get; set; } = 0;
 
-        public double MoneyGiven {get; set;}
-
-        public double FeedMoney(double money)
+        public void FeedMoney()
         {
-            CurrentMoneyProvided += money;
+            Console.WriteLine($"Insert dollar bills of $1,$5,$10,$20");
 
-            return CurrentMoneyProvided;
+            string moneyFed = Console.ReadLine();
+            double money = double.Parse(moneyFed);
+            CurrentMoneyProvided += money;
+            Console.WriteLine($"Current money provided: ${this.CurrentMoneyProvided}");
+           
+
+            
         }
 
     }

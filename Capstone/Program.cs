@@ -4,46 +4,57 @@ namespace Capstone
 {
     class Program
     {
+        
         static void Main(string[] args)
 
         {  
             Menu menu = new Menu();
+            VendingMachine vendingMachine = new VendingMachine();
+
             menu.DisplayOptions();
             int userChoice = menu.ParseUserChoice();
-            if (userChoice == 1)
+            while (userChoice == 1)
             {
                 menu.DisplayItem();
                 Console.WriteLine();
-
+                menu.DisplayOptions();
+                userChoice = menu.ParseUserChoice();
 
             }
-         
-            menu.DisplayOptions();
-            userChoice =menu.ParseUserChoice();
+        
 
             if (userChoice == 2)
             {
 
-                menu.DisplayPurchaseOptions();
+                menu.DisplayPurchaseOptions(vendingMachine.CurrentMoneyProvided);
+                userChoice = menu.ParseUserChoice();
+                while (userChoice == 1)
+                {
+                    vendingMachine.FeedMoney();
+                    menu.DisplayPurchaseOptions(vendingMachine.CurrentMoneyProvided);
+                    userChoice = menu.ParseUserChoice();
+                }
+                if (userChoice == 2)
+                {
+                    menu.DisplayItem();
+                    //userChoice = menu.ParseUserChoice();
+                    Console.WriteLine();
+                    Console.WriteLine($"Please enter code to choose your item.");
+                    string itemChoice = Console.ReadLine();
+
+
+                }
+
             }
             else if(userChoice == 1)
             {
                 menu.DisplayItem();
 
             }
-            VendingMachine vendingMachine = new VendingMachine();
 
-            //vendingMachine.MoneyGiven = Console.ReadLine();
+          
 
-            Console.WriteLine($"Insert dollar bills of $1,$5,$10,$20");
 
-            string moneyFed = Console.ReadLine();
-            double Money = double.Parse(moneyFed);
-            vendingMachine.FeedMoney(Money);
-            Money = vendingMachine.CurrentMoneyProvided;
-            //while()
-            Console.WriteLine($"Current money provided: ${Money}");
-            menu.DisplayPurchaseOptions();
 
             
 
