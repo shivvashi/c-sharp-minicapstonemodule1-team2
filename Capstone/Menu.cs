@@ -24,6 +24,7 @@ namespace Capstone
                 }
             }
         }
+       
         public void DisplayOptions()
         {
             Console.WriteLine($"Please Pick a number option");

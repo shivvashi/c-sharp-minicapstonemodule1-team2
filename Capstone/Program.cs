@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Capstone
 {
@@ -10,6 +11,8 @@ namespace Capstone
         {  
             Menu menu = new Menu();
             VendingMachine vendingMachine = new VendingMachine();
+            vendingMachine.MakingDictionary();
+            Dictionary<string, Animal> itemList = vendingMachine.Items;
 
             menu.DisplayOptions();
             int userChoice = menu.ParseUserChoice();
@@ -41,6 +44,15 @@ namespace Capstone
                     Console.WriteLine();
                     Console.WriteLine($"Please enter code to choose your item.");
                     string itemChoice = Console.ReadLine();
+                    if (itemList.ContainsKey(itemChoice) == false)
+                    {
+                        Console.WriteLine($"Please try again.");
+                    }
+                    else
+                    {
+                        Animal valueKey = itemList[itemChoice];
+                        Console.WriteLine($"{valueKey}");
+                    }
 
 
                 }
@@ -51,12 +63,13 @@ namespace Capstone
                 menu.DisplayItem();
 
             }
-
-          
-
+     
 
 
-            
+
+
+
+
 
 
 

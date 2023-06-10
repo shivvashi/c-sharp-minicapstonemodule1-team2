@@ -8,17 +8,14 @@ namespace Capstone
     {
         public string AnimalType { get; set; }
 
-        public string SlotLocation { get; set; }
+     
 
-        public double Price { get; set; }
-
-        public Pony(string name, string slotLocation, double price, int inventory, string animalType)
-            : base(name, inventory)
+        public Pony(string name, int inventory, string slotLocation, double price, string animalType)
+            : base(name, inventory,slotLocation,price)
         {
 
             AnimalType = animalType;
-            SlotLocation = slotLocation;
-            Price = price;
+         
 
         }
     }
