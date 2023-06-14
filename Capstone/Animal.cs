@@ -10,16 +10,19 @@ namespace Capstone
 
         public string SlotLocation { get; set; }
 
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
-        public int Inventory { get; set; } = 5;
+        public int Inventory { get; set; }
 
-        public Animal (string name, int inventory, string slotLocation, double price)
+        public string Message { get; set; }
+
+        public Animal (string name, int inventory, string slotLocation, decimal price,string message)
         {
             Name = name;
             Inventory = inventory;
             SlotLocation = slotLocation;
             Price = price;
+            Message = message;
         }
     }
 }

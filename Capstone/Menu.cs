@@ -32,11 +32,21 @@ namespace Capstone
             Console.WriteLine($"(2) Purchase");
             Console.WriteLine($"(3) Exit");
         }
+        public int ValadateChoice(int userChoice)
+        {
+            while (userChoice > 3 || userChoice <= 0)
+            {
+                Console.WriteLine($"Please pick a valid option");
+                DisplayOptions();
+                userChoice = ParseUserChoice();
 
-        public void DisplayPurchaseOptions(double money)
+            }
+            return userChoice;
+        }
+        public void DisplayPurchaseOptions(decimal money)
         {
             Console.WriteLine($"Please Pick a number option");
-            Console.WriteLine($"Current Money Provided:{money}");
+            Console.WriteLine($"Current Money Provided:${money}");
             Console.WriteLine($"(1) Feed Money");
             Console.WriteLine($"(2) Select Product");
             Console.WriteLine($"(3) Finish Transaction");

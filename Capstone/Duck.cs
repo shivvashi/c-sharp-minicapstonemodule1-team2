@@ -7,12 +7,14 @@ namespace Capstone
     public class Duck:Animal
     {
         public string AnimalType { get; set; }
-    
+
+        
 
 
 
-        public Duck (string name, int inventory,string slotLocation, double price, string animalType)
-            : base(name, inventory, slotLocation, price)
+
+        public Duck (string name, int inventory,string slotLocation, decimal price, string animalType, string message)
+            : base(name, inventory, slotLocation, price,message)
         {
 
             AnimalType = animalType;

@@ -12,8 +12,10 @@ namespace Capstone
 
        
 
-        public Penguin (string name, int inventory, string slotLocation, double price,  string animalType)
-             : base(name, inventory, slotLocation, price)
+
+
+        public Penguin (string name, int inventory, string slotLocation, decimal price,  string animalType,string message)
+             : base(name, inventory, slotLocation, price,message)
         {
 
             AnimalType = animalType;
